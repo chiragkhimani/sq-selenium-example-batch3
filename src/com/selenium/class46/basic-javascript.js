@@ -1,0 +1,1 @@
+alert("Here's some JavaScript! - Click OK to see the site");
