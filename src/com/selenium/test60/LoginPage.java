@@ -1,17 +1,33 @@
 package com.selenium.test60;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
+	
+	@FindBy(id = "txtUsername")
+	WebElement userNameInput;
+
+	@FindBy(id = "spanMessage")
+	WebElement loginErrorMsg;
+
+	@FindBy(id = "txtPassword")
+	WebElement passwordInput;
+
+	@FindBy(id = "btnLogin")
+	WebElement loginBtn;
+
 	WebDriver driver;
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
 
 	public void validateLoginErrorMsg() {
-		System.out.println(driver.findElement(By.id("spanMessage")).isDisplayed());
+		System.out.println(loginErrorMsg.isDisplayed());
 	}
 
 	public void openWebsite() {
@@ -19,9 +35,9 @@ public class LoginPage {
 	}
 
 	public void doLogin(String usernmae, String password) {
-		driver.findElement(By.id("txtUsername")).sendKeys(usernmae);
-		driver.findElement(By.id("txtPassword")).sendKeys(password);
-		driver.findElement(By.id("btnLogin")).click();
+		userNameInput.sendKeys(usernmae);
+		passwordInput.sendKeys(password);
+		loginBtn.click();
 	}
 
 }
