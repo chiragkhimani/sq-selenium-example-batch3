@@ -38,6 +38,7 @@ public class LoginTest extends BaseTest {
 		loginPage.clickOnForgetPassLink();
 		forgetPassPage.enterUsername("TetsDemoIncorrect");
 		forgetPassPage.clickOnResetPasswordBtn();
+		forgetPassPage.verifyIncorrectUsernameErrorMsg();
 	}
 
 }

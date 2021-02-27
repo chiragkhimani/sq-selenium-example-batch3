@@ -8,7 +8,7 @@ public class HomePage {
 
 	@FindBy(id = "branding")
 	WebElement logo;
-
+	
 	WebDriver driver;
 
 	public HomePage(WebDriver driver) {

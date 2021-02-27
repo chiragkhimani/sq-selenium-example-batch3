@@ -13,6 +13,9 @@ public class ForgetPasswordPage {
 	@FindBy(id = "btnSearchValues")
 	WebElement resetPassBtn;
 
+	@FindBy(xpath = "//div[@class='message warning fadable']")
+	WebElement incorrectUsernameErrorMsg;
+
 	WebDriver driver;
 
 	public ForgetPasswordPage(WebDriver driver) {
@@ -26,6 +29,12 @@ public class ForgetPasswordPage {
 
 	public void clickOnResetPasswordBtn() {
 		resetPassBtn.click();
+	}
+
+	public void verifyIncorrectUsernameErrorMsg() {
+		System.out.println(driver.getPageSource());
+		System.out.println(incorrectUsernameErrorMsg.isDisplayed());
+		System.out.println(incorrectUsernameErrorMsg.getText());
 	}
 
 }
