@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
-	
+
 	@FindBy(id = "txtUsername")
 	WebElement userNameInput;
 
@@ -19,7 +19,14 @@ public class LoginPage {
 	@FindBy(id = "btnLogin")
 	WebElement loginBtn;
 
+	@FindBy(css = "#forgotPasswordLink a")
+	WebElement forgetPasswordLink;
+
 	WebDriver driver;
+	
+	public void clickOnForgetPassLink() {
+		forgetPasswordLink.click();
+	}
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;

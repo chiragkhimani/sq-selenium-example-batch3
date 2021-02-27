@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
 
-	@Test(groups = { "smoke", "chirag" })
+	@Test(groups = { "smoke", "chirag" }, enabled = false)
 	public void verifyLoginSuccessfulWithValidCred() {
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.openWebsite();
@@ -14,7 +14,7 @@ public class LoginTest extends BaseTest {
 		homePage.validateHomePage();
 	}
 
-	@Test(groups = { "regression", "yusuf" })
+	@Test(groups = { "regression", "yusuf" }, enabled = false)
 	public void verifyLoginUnSuccessfulWithInValidCred() {
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.openWebsite();
@@ -22,12 +22,22 @@ public class LoginTest extends BaseTest {
 		loginPage.validateLoginErrorMsg();
 	}
 
-	@Test(groups = { "regression", "chirag" })
+	@Test(groups = { "regression", "chirag" }, enabled = false)
 	public void verifyLoginUnSuccessfulWithBlankCred() {
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.openWebsite();
 		loginPage.doLogin("", "");
 		loginPage.validateLoginErrorMsg();
+	}
+	
+	@Test
+	public void verifyErrorMsgForForgetPasswordIncorrectUser(){
+		LoginPage loginPage = new LoginPage(driver);
+		ForgetPasswordPage forgetPassPage = new ForgetPasswordPage(driver);
+		loginPage.openWebsite();
+		loginPage.clickOnForgetPassLink();
+		forgetPassPage.enterUsername("TetsDemoIncorrect");
+		forgetPassPage.clickOnResetPasswordBtn();
 	}
 
 }
