@@ -15,6 +15,7 @@ public class WaitExample4 {
 		WebDriver driver = new ChromeDriver();
 
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 
 		driver.get("http://demo.automationtesting.in/Loader.html");
